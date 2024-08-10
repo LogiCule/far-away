@@ -1,12 +1,11 @@
-const Item = ({ item, handleChange }) => {
+const Item = ({ item, handleChange, handleRemove }) => {
   return (
-    <li>
+    <li className="item">
+      <input type="checkbox" value={item.packed} onClick={handleChange} />
       <span style={item.packed ? { textDecoration: "line-through" } : {}}>
-        {item.description}
+        {item.quantity} {item.description}
       </span>
-      <button onClick={() => handleChange()}>
-        {item.packed ? "✅" : "❌"}
-      </button>
+      <button onClick={handleRemove}>❌</button>
     </li>
   );
 };

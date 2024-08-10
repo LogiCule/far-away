@@ -1,12 +1,16 @@
 import Item from "../Item";
 
 const PackingList = ({ items, setItems }) => {
-  const changePack = (id) => {
+  const addPack = (id) => {
     setItems((prev) =>
       prev.map((item) => {
         return { ...item, packed: item.id == id ? !item.packed : item.packed };
       })
     );
+  };
+
+  const delPack = (id) => {
+    setItems((prev) => prev.filter((item) => item.id != id));
   };
 
   return (
@@ -15,7 +19,8 @@ const PackingList = ({ items, setItems }) => {
         {items.map((item) => (
           <Item
             item={item}
-            handleChange={() => changePack(item.id)}
+            handleChange={() => addPack(item.id)}
+            handleRemove={() => delPack(item.id)}
             key={item.id}
           />
         ))}

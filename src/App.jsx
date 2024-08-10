@@ -9,16 +9,11 @@ function App() {
       : []
   );
 
-  function clearList() {
-    setItems([]);
-    localStorage.removeItem("todo-list");
-  }
-
   useEffect(() => {
     const storage = JSON.stringify(items);
-    if (items && items.length > 0) localStorage.setItem("todo-list", storage);
+    localStorage.setItem("todo-list", storage);
   }, [items]);
-  
+
   return (
     <div className="app">
       <Logo />

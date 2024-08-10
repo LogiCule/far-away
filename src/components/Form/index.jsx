@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 const Form = ({ setItems }) => {
-  const numList = Array.from({ length: 20 }, (_, i) => i + 1);
-  const [formData, setFormData] = useState({ quantity: 1, description: "" });
+  const numList = Array.from({ length: 20 }, (_, i) => i + 1 - 0);
+  const [formData, setFormData] = useState({ quantity: "1", description: "" });
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -11,7 +11,7 @@ const Form = ({ setItems }) => {
         ...items,
         { ...formData, id: items.length + 1, packed: false },
       ];
-      // localStorage.setItem("todo-list", JSON.stringify(list));
+
       return list;
     });
     setFormData({ quantity: 1, description: "" });

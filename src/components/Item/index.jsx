@@ -1,7 +1,7 @@
 const Item = ({ item, handleChange, handleRemove }) => {
   return (
     <li className="item">
-      <input type="checkbox" value={item.packed} onClick={handleChange} />
+      <input type="checkbox" onChange={handleChange} checked={item.packed} />
       <span style={item.packed ? { textDecoration: "line-through" } : {}}>
         {item.quantity} {item.description}
       </span>
